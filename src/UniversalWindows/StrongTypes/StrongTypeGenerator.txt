@@ -1,0 +1,4 @@
+﻿Generated StrongType UserID
+Generated StrongType CustomerID
+Generated StrongType Year
+Generated StrongType Years
