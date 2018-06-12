@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<strongTypes xmlns="https://www.github.com/Herdo/strongtypes"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://www.github.com/Herdo/strongtypes StrongTypesConfiguration.xsd">
+  <strongType name="UserID" internalType="System.Int32" />
+  <strongType name="CustomerID" internalType="System.Int32">
+    <formatString>D5</formatString>
+    <customDescription><![CDATA[CustomerID with consistent formatting across all applications.]]></customDescription>
+    <excludeOperator>Add</excludeOperator>
+    <excludeOperator>Subtract</excludeOperator>
+    <!-- We don't re-use customer IDs, so there's no need to decrement -->
+    <excludeOperator>Decrement</excludeOperator>
+    <!-- None of our customer IDs is "more" or "less" than the other - we don't need to compare them this way -->
+    <excludeOperator>LessThan</excludeOperator>
+    <excludeOperator>GreaterThan</excludeOperator>
+    <excludeOperator>LessThanOrEqual</excludeOperator>
+    <excludeOperator>GreaterThanOrEqual</excludeOperator>
+  </strongType>
+  <strongType name="Year" internalType="System.Int16">
+    <validate>true</validate>
+    <excludeOperator>Add</excludeOperator>
+    <excludeOperator>Substract</excludeOperator>
+  </strongType>
+  <strongType name="Years" internalType="System.Int16"/>
+</strongTypes>

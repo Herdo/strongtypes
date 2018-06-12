@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Herdo.StrongTypes.DotNetStandard</AssemblyName>
+    <RootNamespace>Herdo.StrongTypes.DotNetStandard</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="StrongTypes\StrongTypeGenerator.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="StrongTypes\StrongTypeGenerator.txt">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="StrongTypes\CustomerID.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StrongTypes\UserID.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StrongTypes\Year.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StrongTypes\Years.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="StrongTypes\StrongTypeGenerator.tt">
+      <LastGenOutput>StrongTypeGenerator.txt</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="StrongTypes\StrongTypesConfiguration.xsd">
+      <LastGenOutput>StrongTypesConfiguration.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>
