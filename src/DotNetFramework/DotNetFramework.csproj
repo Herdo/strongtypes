@@ -43,45 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StrongTypes\CustomerID.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StrongTypes\UserID.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StrongTypes\Year.cs" />
-    <Compile Include="StrongTypes\Year.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StrongTypes\Years.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="StrongTypes\MultipleOutputHelper.ttinclude" />
-    <None Include="StrongTypes\StrongTypesConfiguration.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StrongTypesConfiguration.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="StrongTypes\StrongTypeGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StrongTypeGenerator.txt</LastGenOutput>
-    </None>
-    <None Include="StrongTypes\StrongTypeGenerator.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </None>
-    <None Include="StrongTypes\StrongTypesConfiguration.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetStandard\DotNetStandard.csproj">
+      <Project>{9f55fe92-c61a-4ead-9c22-1891fb7c15e7}</Project>
+      <Name>DotNetStandard</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

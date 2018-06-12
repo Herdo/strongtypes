@@ -1,6 +1,7 @@
 ﻿namespace Herdo.StrongTypes.UniversalWindows
 {
     using Windows.UI.Xaml;
+    using DotNetStandard;
 
     public sealed partial class MainPage
     {

@@ -8,34 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="StrongTypes\CustomerID.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Update="StrongTypes\UserID.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Update="StrongTypes\Year.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Update="StrongTypes\Years.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="StrongTypes\StrongTypeGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StrongTypeGenerator.txt</LastGenOutput>
-    </None>
-    <None Update="StrongTypes\StrongTypeGenerator.txt">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </None>
-    <None Update="StrongTypes\StrongTypesConfiguration.xsd">
-      <LastGenOutput>StrongTypesConfiguration.Designer.cs</LastGenOutput>
-      <Generator>MSDataSetGenerator</Generator>
-    </None>
+    <ProjectReference Include="..\DotNetStandard\DotNetStandard.csproj" />
   </ItemGroup>
 
   <ItemGroup>

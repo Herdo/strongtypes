@@ -1,6 +1,7 @@
 ﻿namespace Herdo.StrongTypes.DotNetCore
 {
     using System;
+    using DotNetStandard;
 
     internal static class Program
     {
