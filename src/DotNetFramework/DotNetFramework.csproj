@@ -49,11 +49,6 @@
     <Compile Include="StrongTypes\CustomerID.generated.cs">
       <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="StrongTypes\StrongTypesConfiguration.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StrongTypesConfiguration.xsd</DependentUpon>
-    </Compile>
     <Compile Include="StrongTypes\UserID.generated.cs">
       <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
     </Compile>
@@ -67,29 +62,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="StrongTypes\MultipleOutputHelper.ttinclude" />
-    <None Include="StrongTypes\StrongTypesConfiguration.xsc">
-      <DependentUpon>StrongTypesConfiguration.xsd</DependentUpon>
-    </None>
     <None Include="StrongTypes\StrongTypesConfiguration.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>StrongTypesConfiguration.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="StrongTypes\StrongTypesConfiguration.xss">
-      <DependentUpon>StrongTypesConfiguration.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StrongTypes\StrongTypeGenerator.tt">
+    <None Include="StrongTypes\StrongTypeGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StrongTypeGenerator.txt</LastGenOutput>
-    </Content>
-    <Content Include="StrongTypes\StrongTypeGenerator.txt">
+    </None>
+    <None Include="StrongTypes\StrongTypeGenerator.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Content>
-    <Content Include="StrongTypes\StrongTypesConfiguration.xml" />
+    </None>
+    <None Include="StrongTypes\StrongTypesConfiguration.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

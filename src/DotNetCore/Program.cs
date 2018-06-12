@@ -1,4 +1,4 @@
-﻿namespace Herdo.StrongTypes.DotNetFramework
+﻿namespace Herdo.StrongTypes.DotNetCore
 {
     using System;
 

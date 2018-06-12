@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Herdo.StrongTypes.DotNetCore</AssemblyName>
+    <RootNamespace>Herdo.StrongTypes.DotNetCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="StrongTypes\CustomerID.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StrongTypes\UserID.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StrongTypes\Year.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StrongTypes\Years.generated.cs">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="StrongTypes\StrongTypeGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StrongTypeGenerator.txt</LastGenOutput>
+    </None>
+    <None Update="StrongTypes\StrongTypeGenerator.txt">
+      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </None>
+    <None Update="StrongTypes\StrongTypesConfiguration.xsd">
+      <LastGenOutput>StrongTypesConfiguration.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>
