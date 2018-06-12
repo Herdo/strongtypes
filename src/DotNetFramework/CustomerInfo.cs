@@ -3,14 +3,14 @@
     using System;
     using StrongTypes;
 
-    internal class Consumer
+    internal class CustomerInfo
     {
         private readonly UserID _creatorID;
         private readonly CustomerID _customerID;
         private readonly Year _added;
         private readonly Years _membershipDuration;
 
-        internal Consumer()
+        internal CustomerInfo()
         {
             _creatorID = (UserID) 189;
             _customerID = (CustomerID) 4140;
