@@ -11,31 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="StrongTypes\StrongTypeGenerator.txt">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
+    <Compile Update="StrongTypes\StrongTypeGenerator.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="StrongTypes\CustomerID.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Update="StrongTypes\UserID.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Update="StrongTypes\Year.generated.cs">
-      <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Update="StrongTypes\Years.generated.cs">
       <DependentUpon>StrongTypeGenerator.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="StrongTypes\StrongTypeGenerator.tt">
-      <LastGenOutput>StrongTypeGenerator.txt</LastGenOutput>
+      <LastGenOutput>StrongTypeGenerator.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="StrongTypes\StrongTypesConfiguration.xsd">
