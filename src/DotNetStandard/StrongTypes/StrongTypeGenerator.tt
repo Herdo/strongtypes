@@ -35,6 +35,14 @@ using System.Security.Permissions;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+// ReSharper disable PartialTypeWithSinglePart
+// ReSharper disable InheritdocConsiderUsage
+// ReSharper disable RedundantNameQualifier
+// ReSharper disable HeuristicUnreachableCode
+// ReSharper disable ReferenceEqualsWithValueType
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
+// ReSharper disable NonReadonlyMemberInGetHashCode
+// ReSharper disable RedundantCast.0
 
 <# var ns = defaultNamespace + ".StrongTypes"; #>
 namespace <#= ns #>
@@ -339,9 +347,8 @@ foreach (XElement strongType in strongTypes)
 		[ExcludeFromCodeCoverage]
 		private static <#= internalType #> Validate(<#= internalType #> value)
 		{
-			string validationError;
-			if (!IsValid(value, out validationError))
-				throw new InvalidCastException("Invalid cast into the strong type. The validation failed. Error: " + validationError ?? "<null>");
+			if (!IsValid(value, out var validationError))
+				throw new InvalidCastException("Invalid cast into the strong type. The validation failed. Error: " + validationError);
 			return value;
 		}
 		<# } if (Type.GetType(internalType) == typeof(System.DateTime)) { #>

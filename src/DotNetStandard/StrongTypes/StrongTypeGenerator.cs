@@ -6,6 +6,14 @@ using System.Security.Permissions;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+// ReSharper disable PartialTypeWithSinglePart
+// ReSharper disable InheritdocConsiderUsage
+// ReSharper disable RedundantNameQualifier
+// ReSharper disable HeuristicUnreachableCode
+// ReSharper disable ReferenceEqualsWithValueType
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
+// ReSharper disable NonReadonlyMemberInGetHashCode
+// ReSharper disable RedundantCast.0
 
 namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 {
@@ -670,9 +678,8 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		private static System.Int16 Validate(System.Int16 value)
 		{
-			string validationError;
-			if (!IsValid(value, out validationError))
-				throw new InvalidCastException("Invalid cast into the strong type. The validation failed. Error: " + validationError ?? "<null>");
+			if (!IsValid(value, out var validationError))
+				throw new InvalidCastException("Invalid cast into the strong type. The validation failed. Error: " + validationError);
 			return value;
 		}
 				
