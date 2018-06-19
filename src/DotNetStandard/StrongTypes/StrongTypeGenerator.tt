@@ -1,20 +1,33 @@
 ﻿<#@ template debug="false" hostspecific="True" language="C#"
-#><#@include file="MultipleOutputHelper.ttinclude"
+#><#@assembly name="EnvDTE"
+#><#@assembly name="System.Core"
+#><#@assembly name="System.Xml"
+#><#@assembly name="System.Xml.Linq"
+#><#@import namespace="System.Collections.Generic"
 #><#@import namespace="System.Linq"
 #><#@import namespace="System.Linq.Expressions"
 #><#@import namespace="System.Reflection"
+#><#@import namespace="System.Text"
 #><#@import namespace="System.Xml.Linq"
 #><#@import namespace="System.Xml.Schema"
+#><#@ import namespace="Microsoft.VisualStudio.TextTemplating"
 #><#
-Host.SetFileExtension(".txt");
+Host.SetFileExtension(".cs");
 
-var manager = Manager.Create(Host, GenerationEnvironment);
+// Prepare namespace
+var hostServiceProvider = (IServiceProvider)Host;
+if (hostServiceProvider == null)
+	throw new ArgumentNullException("Could not obtain IServiceProvider");
+var dte = (EnvDTE.DTE) hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+if (dte == null)
+	throw new ArgumentNullException("Could not obtain DTE from host");
+var templateProjectItem = dte.Solution.FindProjectItem(Host.TemplateFile);
+var defaultNamespace = templateProjectItem.ContainingProject.Properties.Item("DefaultNamespace").Value.ToString();
 
 /***********************************/
 /*             HEADER              */
 /***********************************/
-manager.StartHeader(false); #>
-using System;
+#>using System;
 using System.CodeDom.Compiler;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
@@ -23,11 +36,10 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-<# var ns = manager.DefaultProjectNamespace + ".StrongTypes"; #>
+<# var ns = defaultNamespace + ".StrongTypes"; #>
 namespace <#= ns #>
 {
 <#
-manager.EndBlock();
 
 /***********************************/
 /*            CONTENT              */
@@ -38,6 +50,7 @@ var schemaSet = LoadSchemaSet(Host, configDoc);
 configDoc.Validate(schemaSet, OnSchemaValidationError);
 XNamespace xmlNamespace = "https://www.github.com/Herdo/strongtypes";
 var strongTypes = configDoc.Root.Descendants(xmlNamespace + "strongType").ToArray();
+var first = true;
 foreach (XElement strongType in strongTypes)
 {
 	var typeName = strongType.Attribute("name").Value;
@@ -52,10 +65,18 @@ foreach (XElement strongType in strongTypes)
 	string customDescription = customDescriptionValue == null ? null : customDescriptionValue.Value;
 	XElement[] excludeOperatorElements = strongType.Elements(xmlNamespace + "excludeOperator").ToArray();
 	string[] excludeOperators = excludeOperatorElements.Length == 0 ? null : excludeOperatorElements.Select(m => m.Value).ToArray();
+	
+	if(first)
+	{
+		first = false;
+	}
+	else
+	{
+#>
 
-	manager.StartNewFile(typeName + ".generated.cs", Encoding.UTF8);
-
-	#>
+<#
+	}
+#>
 	/// <summary>
 	/// <#= CustomDescriptionText(typeName, customDescription) #>
 	/// </summary>
@@ -368,21 +389,13 @@ foreach (XElement strongType in strongTypes)
             writer.WriteString(<#= ConvertValueToXml(internalType) #>);
 	    }
 	}
-<#	manager.EndBlock();
-#>Generated StrongType <#= typeName #>
 <#
 }
 
 /***********************************/
 /*             FOOTER              */
 /***********************************/
-manager.StartFooter(false);
-#>}<#
-manager.EndBlock();
-
-manager.Process(true);
-#>
-<#+
+#>}<#+
 /***********************************/
 /*             HELPER              */
 /***********************************/
