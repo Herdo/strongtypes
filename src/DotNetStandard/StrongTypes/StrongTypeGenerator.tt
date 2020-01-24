@@ -18,7 +18,7 @@ Host.SetFileExtension(".cs");
 var hostServiceProvider = (IServiceProvider)Host;
 if (hostServiceProvider == null)
 	throw new ArgumentNullException("Could not obtain IServiceProvider");
-var dte = (EnvDTE.DTE) hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+var dte = (EnvDTE.DTE) hostServiceProvider.GetCOMService(typeof(EnvDTE.DTE));
 if (dte == null)
 	throw new ArgumentNullException("Could not obtain DTE from host");
 var templateProjectItem = dte.Solution.FindProjectItem(Host.TemplateFile);
