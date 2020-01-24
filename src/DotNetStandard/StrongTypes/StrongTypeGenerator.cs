@@ -1,12 +1,4 @@
-﻿using System;
-using System.CodeDom.Compiler;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
-// ReSharper disable PartialTypeWithSinglePart
+﻿// ReSharper disable PartialTypeWithSinglePart
 // ReSharper disable InheritdocConsiderUsage
 // ReSharper disable RedundantNameQualifier
 // ReSharper disable HeuristicUnreachableCode
@@ -15,31 +7,44 @@ using System.Xml.Serialization;
 // ReSharper disable NonReadonlyMemberInGetHashCode
 // ReSharper disable RedundantCast.0
 
+using System;
+using System.CodeDom.Compiler;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
+using System.Security.Permissions;
+using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+using JetBrains.Annotations;
+
 namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 {
 	/// <summary>
 	/// Implements the strong type <see cref="UserID" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "1.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
 	[Serializable]
+	[Newtonsoft.Json.JsonConverter(typeof(UserID.NewtonsoftJsonConverter))]
+	[System.Text.Json.Serialization.JsonConverter(typeof(UserID.SystemTextJsonConverter))]
 	public partial struct UserID : IEquatable<UserID>, IComparable<UserID>, ISerializable, IXmlSerializable
 	{
-		/// <summary>
-		/// Actual backing field which holds the value.
-		/// </summary>
-		/// <remarks>This field is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
-		private System.Int32 _value;
+        /// <summary>
+        /// Actual backing property which holds the value.
+        /// </summary>
+        /// <remarks>This property is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
+        [UsedImplicitly]
+		public System.Int32 V { get; set; }
 
 		[ExcludeFromCodeCoverage]
 		private UserID(System.Int32 value)
 	    {
-	        _value = value;
+	        V = value;
 	    }
 
 		[ExcludeFromCodeCoverage]
 		private UserID(SerializationInfo info, StreamingContext context)
 		{
-            _value = (System.Int32)info.GetValue("v", typeof(System.Int32));
+            V = (System.Int32)info.GetValue("v", typeof(System.Int32));
 		}
 
 	    /// <summary>
@@ -61,7 +66,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public static explicit operator System.Int32(UserID value)
 	    {
-	        return value._value;
+	        return value.V;
 	    }
 
 		/// <summary>
@@ -74,7 +79,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		{
 			if (ReferenceEquals(null, other)) return false;
 			if (ReferenceEquals(this, other)) return true;
-			return _value == other._value;
+			return V == other.V;
 		}
 		
 		/// <summary>
@@ -97,9 +102,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public override int GetHashCode()
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 0;
-			return _value.GetHashCode();
+			return V.GetHashCode();
 		}
 
 		/// <summary>
@@ -110,9 +115,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public int CompareTo(UserID other)
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 1;
-			return _value.CompareTo(other._value);
+			return V.CompareTo(other.V);
 		}
 
         /// <summary>
@@ -127,7 +132,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	        if (ReferenceEquals(first, second))
 	            return true;
 
-	        return first._value == second._value;
+	        return first.V == second.V;
 	    }
 
         /// <summary>
@@ -151,7 +156,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator <(UserID first, UserID second)
 	    {
-	        return first._value < second._value;
+	        return first.V < second.V;
 	    }
 
 	    /// <summary>
@@ -163,7 +168,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator >(UserID first, UserID second)
 	    {
-	        return first._value > second._value;
+	        return first.V > second.V;
 	    }
 
 	    /// <summary>
@@ -175,7 +180,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator <=(UserID first, UserID second)
 	    {
-	        return first._value <= second._value;
+	        return first.V <= second.V;
 	    }
 
         /// <summary>
@@ -187,7 +192,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator >=(UserID first, UserID second)
 	    {
-	        return first._value >= second._value;
+	        return first.V >= second.V;
         }
 
         /// <summary>
@@ -200,7 +205,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static UserID operator +(UserID summand1, UserID summand2)
         {
-            return (UserID) (summand1._value + summand2._value);
+            return (UserID) (summand1.V + summand2.V);
         }
 
         /// <summary>
@@ -213,7 +218,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static UserID operator -(UserID minuend, UserID subtrahend)
         {
-            return (UserID)(minuend._value - subtrahend._value);
+            return (UserID)(minuend.V - subtrahend.V);
         }
 
         /// <summary>
@@ -225,7 +230,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static UserID operator ++(UserID value)
 	    {
-	        return (UserID) (++value._value);
+	        return (UserID) (++value.V);
         }
 
         /// <summary>
@@ -237,7 +242,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static UserID operator --(UserID value)
 	    {
-	        return (UserID) (--value._value);
+	        return (UserID) (--value.V);
         }
 
 		/// <summary>
@@ -247,60 +252,115 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public override string ToString()
 	    {
-	        if ((object) _value == null)
+	        if ((object)V == null)
+#pragma warning disable CS8603 // Possible null reference return.
 	            return null;
-	        return _value.ToString();
+#pragma warning restore CS8603 // Possible null reference return.
+	        return V.ToString();
 	    }
 				
 		[ExcludeFromCodeCoverage]
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("v", _value);
+			info.AddValue("v", V);
 		}
 		
 		[ExcludeFromCodeCoverage]
 		XmlSchema IXmlSerializable.GetSchema()
 	    {
+#pragma warning disable CS8603 // Possible null reference return.
 	        return null;
+#pragma warning restore CS8603 // Possible null reference return.
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.ReadXml(XmlReader reader)
 	    {
-	        _value = (System.Int32)reader.ReadElementContentAs(typeof(System.Int32), null);
+	        V = (System.Int32)reader.ReadElementContentAs(typeof(System.Int32), null);
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.WriteXml(XmlWriter writer)
 	    {
-            writer.WriteString(XmlConvert.ToString(_value));
+            writer.WriteString(XmlConvert.ToString(V));
 	    }
-	}
+
+		public sealed class NewtonsoftJsonConverter : Newtonsoft.Json.JsonConverter
+        {
+		    [ExcludeFromCodeCoverage]
+            public override void WriteJson(Newtonsoft.Json.JsonWriter writer,
+                                           object value,
+                                           Newtonsoft.Json.JsonSerializer serializer)
+			{
+				var instance = (UserID)value;
+				writer.WriteValue(instance.V);
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override object ReadJson(Newtonsoft.Json.JsonReader reader,
+                                            Type objectType,
+                                            object existingValue,
+                                            Newtonsoft.Json.JsonSerializer serializer)
+            {
+			    if (reader.Value == null && Nullable.GetUnderlyingType(objectType) != null)
+				    return null;
+
+                var instance = default(UserID);
+                instance.V = (System.Int32) Convert.ChangeType(reader.Value, TypeCode.Int32);
+                return instance;
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override bool CanConvert(Type objectType) => objectType == typeof(CustomerID);
+        }
+        
+        public sealed class SystemTextJsonConverter : System.Text.Json.Serialization.JsonConverter<UserID>
+        {
+		    [ExcludeFromCodeCoverage]
+            public override UserID Read(ref System.Text.Json.Utf8JsonReader reader,
+                                       Type typeToConvert,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+                return (UserID)reader.GetInt32();
+            }
+
+			[ExcludeFromCodeCoverage]
+            public override void Write(System.Text.Json.Utf8JsonWriter writer,
+                                       UserID value,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+				writer.WriteNumberValue(value.V);
+            }
+        }
+    }
 
 	/// <summary>
 	/// CustomerID with consistent formatting across all applications.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "1.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
 	[Serializable]
+	[Newtonsoft.Json.JsonConverter(typeof(CustomerID.NewtonsoftJsonConverter))]
+	[System.Text.Json.Serialization.JsonConverter(typeof(CustomerID.SystemTextJsonConverter))]
 	public partial struct CustomerID : IEquatable<CustomerID>, IComparable<CustomerID>, ISerializable, IXmlSerializable
 	{
-		/// <summary>
-		/// Actual backing field which holds the value.
-		/// </summary>
-		/// <remarks>This field is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
-		private System.Int32 _value;
+        /// <summary>
+        /// Actual backing property which holds the value.
+        /// </summary>
+        /// <remarks>This property is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
+        [UsedImplicitly]
+		public System.Int32 V { get; set; }
 
 		[ExcludeFromCodeCoverage]
 		private CustomerID(System.Int32 value)
 	    {
-	        _value = value;
+	        V = value;
 	    }
 
 		[ExcludeFromCodeCoverage]
 		private CustomerID(SerializationInfo info, StreamingContext context)
 		{
-            _value = (System.Int32)info.GetValue("v", typeof(System.Int32));
+            V = (System.Int32)info.GetValue("v", typeof(System.Int32));
 		}
 
 	    /// <summary>
@@ -322,7 +382,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public static explicit operator System.Int32(CustomerID value)
 	    {
-	        return value._value;
+	        return value.V;
 	    }
 
 		/// <summary>
@@ -335,7 +395,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		{
 			if (ReferenceEquals(null, other)) return false;
 			if (ReferenceEquals(this, other)) return true;
-			return _value == other._value;
+			return V == other.V;
 		}
 		
 		/// <summary>
@@ -358,9 +418,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public override int GetHashCode()
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 0;
-			return _value.GetHashCode();
+			return V.GetHashCode();
 		}
 
 		/// <summary>
@@ -371,9 +431,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public int CompareTo(CustomerID other)
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 1;
-			return _value.CompareTo(other._value);
+			return V.CompareTo(other.V);
 		}
 
         /// <summary>
@@ -388,7 +448,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	        if (ReferenceEquals(first, second))
 	            return true;
 
-	        return first._value == second._value;
+	        return first.V == second.V;
 	    }
 
         /// <summary>
@@ -412,7 +472,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static CustomerID operator ++(CustomerID value)
 	    {
-	        return (CustomerID) (++value._value);
+	        return (CustomerID) (++value.V);
         }
 
 		/// <summary>
@@ -422,60 +482,115 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public override string ToString()
 	    {
-	        if ((object) _value == null)
+	        if ((object)V == null)
+#pragma warning disable CS8603 // Possible null reference return.
 	            return null;
-	        return _value.ToString("D5");
+#pragma warning restore CS8603 // Possible null reference return.
+	        return V.ToString("D5");
 	    }
 				
 		[ExcludeFromCodeCoverage]
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("v", _value);
+			info.AddValue("v", V);
 		}
 		
 		[ExcludeFromCodeCoverage]
 		XmlSchema IXmlSerializable.GetSchema()
 	    {
+#pragma warning disable CS8603 // Possible null reference return.
 	        return null;
+#pragma warning restore CS8603 // Possible null reference return.
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.ReadXml(XmlReader reader)
 	    {
-	        _value = (System.Int32)reader.ReadElementContentAs(typeof(System.Int32), null);
+	        V = (System.Int32)reader.ReadElementContentAs(typeof(System.Int32), null);
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.WriteXml(XmlWriter writer)
 	    {
-            writer.WriteString(XmlConvert.ToString(_value));
+            writer.WriteString(XmlConvert.ToString(V));
 	    }
-	}
+
+		public sealed class NewtonsoftJsonConverter : Newtonsoft.Json.JsonConverter
+        {
+		    [ExcludeFromCodeCoverage]
+            public override void WriteJson(Newtonsoft.Json.JsonWriter writer,
+                                           object value,
+                                           Newtonsoft.Json.JsonSerializer serializer)
+			{
+				var instance = (CustomerID)value;
+				writer.WriteValue(instance.V);
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override object ReadJson(Newtonsoft.Json.JsonReader reader,
+                                            Type objectType,
+                                            object existingValue,
+                                            Newtonsoft.Json.JsonSerializer serializer)
+            {
+			    if (reader.Value == null && Nullable.GetUnderlyingType(objectType) != null)
+				    return null;
+
+                var instance = default(CustomerID);
+                instance.V = (System.Int32) Convert.ChangeType(reader.Value, TypeCode.Int32);
+                return instance;
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override bool CanConvert(Type objectType) => objectType == typeof(CustomerID);
+        }
+        
+        public sealed class SystemTextJsonConverter : System.Text.Json.Serialization.JsonConverter<CustomerID>
+        {
+		    [ExcludeFromCodeCoverage]
+            public override CustomerID Read(ref System.Text.Json.Utf8JsonReader reader,
+                                       Type typeToConvert,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+                return (CustomerID)reader.GetInt32();
+            }
+
+			[ExcludeFromCodeCoverage]
+            public override void Write(System.Text.Json.Utf8JsonWriter writer,
+                                       CustomerID value,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+				writer.WriteNumberValue(value.V);
+            }
+        }
+    }
 
 	/// <summary>
 	/// Implements the strong type <see cref="Year" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "1.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
 	[Serializable]
+	[Newtonsoft.Json.JsonConverter(typeof(Year.NewtonsoftJsonConverter))]
+	[System.Text.Json.Serialization.JsonConverter(typeof(Year.SystemTextJsonConverter))]
 	public partial struct Year : IEquatable<Year>, IComparable<Year>, ISerializable, IXmlSerializable
 	{
-		/// <summary>
-		/// Actual backing field which holds the value.
-		/// </summary>
-		/// <remarks>This field is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
-		private System.Int16 _value;
+        /// <summary>
+        /// Actual backing property which holds the value.
+        /// </summary>
+        /// <remarks>This property is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
+        [UsedImplicitly]
+		public System.Int16 V { get; set; }
 
 		[ExcludeFromCodeCoverage]
 		private Year(System.Int16 value)
 	    {
-	        _value = Validate(value);
+	        V = Validate(value);
 	    }
 
 		[ExcludeFromCodeCoverage]
 		private Year(SerializationInfo info, StreamingContext context)
 		{
-            _value = Validate((System.Int16)info.GetValue("v", typeof(System.Int16)));
+            V = Validate((System.Int16)info.GetValue("v", typeof(System.Int16)));
 		}
 
 	    /// <summary>
@@ -497,7 +612,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public static explicit operator System.Int16(Year value)
 	    {
-	        return value._value;
+	        return value.V;
 	    }
 
 		/// <summary>
@@ -510,7 +625,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		{
 			if (ReferenceEquals(null, other)) return false;
 			if (ReferenceEquals(this, other)) return true;
-			return _value == other._value;
+			return V == other.V;
 		}
 		
 		/// <summary>
@@ -533,9 +648,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public override int GetHashCode()
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 0;
-			return _value.GetHashCode();
+			return V.GetHashCode();
 		}
 
 		/// <summary>
@@ -546,9 +661,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public int CompareTo(Year other)
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 1;
-			return _value.CompareTo(other._value);
+			return V.CompareTo(other.V);
 		}
 
         /// <summary>
@@ -563,7 +678,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	        if (ReferenceEquals(first, second))
 	            return true;
 
-	        return first._value == second._value;
+	        return first.V == second.V;
 	    }
 
         /// <summary>
@@ -587,7 +702,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator <(Year first, Year second)
 	    {
-	        return first._value < second._value;
+	        return first.V < second.V;
 	    }
 
 	    /// <summary>
@@ -599,7 +714,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator >(Year first, Year second)
 	    {
-	        return first._value > second._value;
+	        return first.V > second.V;
 	    }
 
 	    /// <summary>
@@ -611,7 +726,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator <=(Year first, Year second)
 	    {
-	        return first._value <= second._value;
+	        return first.V <= second.V;
 	    }
 
         /// <summary>
@@ -623,7 +738,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator >=(Year first, Year second)
 	    {
-	        return first._value >= second._value;
+	        return first.V >= second.V;
         }
 
         /// <summary>
@@ -636,7 +751,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Year operator -(Year minuend, Year subtrahend)
         {
-            return (Year)(minuend._value - subtrahend._value);
+            return (Year)(minuend.V - subtrahend.V);
         }
 
         /// <summary>
@@ -648,7 +763,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Year operator ++(Year value)
 	    {
-	        return (Year) (++value._value);
+	        return (Year) (++value.V);
         }
 
         /// <summary>
@@ -660,7 +775,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Year operator --(Year value)
 	    {
-	        return (Year) (--value._value);
+	        return (Year) (--value.V);
         }
 
 		/// <summary>
@@ -670,9 +785,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public override string ToString()
 	    {
-	        if ((object) _value == null)
+	        if ((object)V == null)
+#pragma warning disable CS8603 // Possible null reference return.
 	            return null;
-	        return _value.ToString();
+#pragma warning restore CS8603 // Possible null reference return.
+	        return V.ToString();
 	    }
 				
 		[ExcludeFromCodeCoverage]
@@ -687,51 +804,104 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("v", _value);
+			info.AddValue("v", V);
 		}
 		
 		[ExcludeFromCodeCoverage]
 		XmlSchema IXmlSerializable.GetSchema()
 	    {
+#pragma warning disable CS8603 // Possible null reference return.
 	        return null;
+#pragma warning restore CS8603 // Possible null reference return.
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.ReadXml(XmlReader reader)
 	    {
-	        _value = Validate((System.Int16)reader.ReadElementContentAs(typeof(System.Int16), null));
+	        V = Validate((System.Int16)reader.ReadElementContentAs(typeof(System.Int16), null));
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.WriteXml(XmlWriter writer)
 	    {
-            writer.WriteString(XmlConvert.ToString(_value));
+            writer.WriteString(XmlConvert.ToString(V));
 	    }
-	}
+
+		public sealed class NewtonsoftJsonConverter : Newtonsoft.Json.JsonConverter
+        {
+		    [ExcludeFromCodeCoverage]
+            public override void WriteJson(Newtonsoft.Json.JsonWriter writer,
+                                           object value,
+                                           Newtonsoft.Json.JsonSerializer serializer)
+			{
+				var instance = (Year)value;
+				writer.WriteValue(instance.V);
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override object ReadJson(Newtonsoft.Json.JsonReader reader,
+                                            Type objectType,
+                                            object existingValue,
+                                            Newtonsoft.Json.JsonSerializer serializer)
+            {
+			    if (reader.Value == null && Nullable.GetUnderlyingType(objectType) != null)
+				    return null;
+
+                var instance = default(Year);
+                instance.V = (System.Int16) Convert.ChangeType(reader.Value, TypeCode.Int16);
+                return instance;
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override bool CanConvert(Type objectType) => objectType == typeof(CustomerID);
+        }
+        
+        public sealed class SystemTextJsonConverter : System.Text.Json.Serialization.JsonConverter<Year>
+        {
+		    [ExcludeFromCodeCoverage]
+            public override Year Read(ref System.Text.Json.Utf8JsonReader reader,
+                                       Type typeToConvert,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+                return (Year)reader.GetInt16();
+            }
+
+			[ExcludeFromCodeCoverage]
+            public override void Write(System.Text.Json.Utf8JsonWriter writer,
+                                       Year value,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+				writer.WriteNumberValue(value.V);
+            }
+        }
+    }
 
 	/// <summary>
 	/// Implements the strong type <see cref="Years" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "1.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
 	[Serializable]
+	[Newtonsoft.Json.JsonConverter(typeof(Years.NewtonsoftJsonConverter))]
+	[System.Text.Json.Serialization.JsonConverter(typeof(Years.SystemTextJsonConverter))]
 	public partial struct Years : IEquatable<Years>, IComparable<Years>, ISerializable, IXmlSerializable
 	{
-		/// <summary>
-		/// Actual backing field which holds the value.
-		/// </summary>
-		/// <remarks>This field is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
-		private System.Int16 _value;
+        /// <summary>
+        /// Actual backing property which holds the value.
+        /// </summary>
+        /// <remarks>This property is basically readonly, but must be non-readonly due to the XML-deserialization which will be called from outside the constructor.</remarks>
+        [UsedImplicitly]
+		public System.Int16 V { get; set; }
 
 		[ExcludeFromCodeCoverage]
 		private Years(System.Int16 value)
 	    {
-	        _value = value;
+	        V = value;
 	    }
 
 		[ExcludeFromCodeCoverage]
 		private Years(SerializationInfo info, StreamingContext context)
 		{
-            _value = (System.Int16)info.GetValue("v", typeof(System.Int16));
+            V = (System.Int16)info.GetValue("v", typeof(System.Int16));
 		}
 
 	    /// <summary>
@@ -753,7 +923,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public static explicit operator System.Int16(Years value)
 	    {
-	        return value._value;
+	        return value.V;
 	    }
 
 		/// <summary>
@@ -766,7 +936,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		{
 			if (ReferenceEquals(null, other)) return false;
 			if (ReferenceEquals(this, other)) return true;
-			return _value == other._value;
+			return V == other.V;
 		}
 		
 		/// <summary>
@@ -789,9 +959,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public override int GetHashCode()
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 0;
-			return _value.GetHashCode();
+			return V.GetHashCode();
 		}
 
 		/// <summary>
@@ -802,9 +972,9 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 		public int CompareTo(Years other)
 		{
-			if (Equals(null, _value))
+			if (Equals(null, V))
 				return 1;
-			return _value.CompareTo(other._value);
+			return V.CompareTo(other.V);
 		}
 
         /// <summary>
@@ -819,7 +989,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	        if (ReferenceEquals(first, second))
 	            return true;
 
-	        return first._value == second._value;
+	        return first.V == second.V;
 	    }
 
         /// <summary>
@@ -843,7 +1013,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator <(Years first, Years second)
 	    {
-	        return first._value < second._value;
+	        return first.V < second.V;
 	    }
 
 	    /// <summary>
@@ -855,7 +1025,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator >(Years first, Years second)
 	    {
-	        return first._value > second._value;
+	        return first.V > second.V;
 	    }
 
 	    /// <summary>
@@ -867,7 +1037,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator <=(Years first, Years second)
 	    {
-	        return first._value <= second._value;
+	        return first.V <= second.V;
 	    }
 
         /// <summary>
@@ -879,7 +1049,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static bool operator >=(Years first, Years second)
 	    {
-	        return first._value >= second._value;
+	        return first.V >= second.V;
         }
 
         /// <summary>
@@ -892,7 +1062,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Years operator +(Years summand1, Years summand2)
         {
-            return (Years) (summand1._value + summand2._value);
+            return (Years) (summand1.V + summand2.V);
         }
 
         /// <summary>
@@ -905,7 +1075,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Years operator -(Years minuend, Years subtrahend)
         {
-            return (Years)(minuend._value - subtrahend._value);
+            return (Years)(minuend.V - subtrahend.V);
         }
 
         /// <summary>
@@ -917,7 +1087,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Years operator ++(Years value)
 	    {
-	        return (Years) (++value._value);
+	        return (Years) (++value.V);
         }
 
         /// <summary>
@@ -929,7 +1099,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
         [ExcludeFromCodeCoverage]
         public static Years operator --(Years value)
 	    {
-	        return (Years) (--value._value);
+	        return (Years) (--value.V);
         }
 
 		/// <summary>
@@ -939,34 +1109,86 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 		[ExcludeFromCodeCoverage]
 	    public override string ToString()
 	    {
-	        if ((object) _value == null)
+	        if ((object)V == null)
+#pragma warning disable CS8603 // Possible null reference return.
 	            return null;
-	        return _value.ToString();
+#pragma warning restore CS8603 // Possible null reference return.
+	        return V.ToString();
 	    }
 				
 		[ExcludeFromCodeCoverage]
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("v", _value);
+			info.AddValue("v", V);
 		}
 		
 		[ExcludeFromCodeCoverage]
 		XmlSchema IXmlSerializable.GetSchema()
 	    {
+#pragma warning disable CS8603 // Possible null reference return.
 	        return null;
+#pragma warning restore CS8603 // Possible null reference return.
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.ReadXml(XmlReader reader)
 	    {
-	        _value = (System.Int16)reader.ReadElementContentAs(typeof(System.Int16), null);
+	        V = (System.Int16)reader.ReadElementContentAs(typeof(System.Int16), null);
 	    }
 		
 		[ExcludeFromCodeCoverage]
 	    void IXmlSerializable.WriteXml(XmlWriter writer)
 	    {
-            writer.WriteString(XmlConvert.ToString(_value));
+            writer.WriteString(XmlConvert.ToString(V));
 	    }
-	}
+
+		public sealed class NewtonsoftJsonConverter : Newtonsoft.Json.JsonConverter
+        {
+		    [ExcludeFromCodeCoverage]
+            public override void WriteJson(Newtonsoft.Json.JsonWriter writer,
+                                           object value,
+                                           Newtonsoft.Json.JsonSerializer serializer)
+			{
+				var instance = (Years)value;
+				writer.WriteValue(instance.V);
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override object ReadJson(Newtonsoft.Json.JsonReader reader,
+                                            Type objectType,
+                                            object existingValue,
+                                            Newtonsoft.Json.JsonSerializer serializer)
+            {
+			    if (reader.Value == null && Nullable.GetUnderlyingType(objectType) != null)
+				    return null;
+
+                var instance = default(Years);
+                instance.V = (System.Int16) Convert.ChangeType(reader.Value, TypeCode.Int16);
+                return instance;
+			}
+			
+		    [ExcludeFromCodeCoverage]
+            public override bool CanConvert(Type objectType) => objectType == typeof(CustomerID);
+        }
+        
+        public sealed class SystemTextJsonConverter : System.Text.Json.Serialization.JsonConverter<Years>
+        {
+		    [ExcludeFromCodeCoverage]
+            public override Years Read(ref System.Text.Json.Utf8JsonReader reader,
+                                       Type typeToConvert,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+                return (Years)reader.GetInt16();
+            }
+
+			[ExcludeFromCodeCoverage]
+            public override void Write(System.Text.Json.Utf8JsonWriter writer,
+                                       Years value,
+                                       System.Text.Json.JsonSerializerOptions options)
+            {
+				writer.WriteNumberValue(value.V);
+            }
+        }
+    }
 }

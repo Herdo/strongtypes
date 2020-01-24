@@ -2,7 +2,7 @@
 <strongTypes xmlns="https://www.github.com/Herdo/strongtypes"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://www.github.com/Herdo/strongtypes StrongTypesConfiguration.xsd">
-  <strongType name="UserID" internalType="System.Int32" />
+  <strongType name="UserID" internalType="System.Int32"/>
   <strongType name="CustomerID" internalType="System.Int32">
     <formatString>D5</formatString>
     <customDescription><![CDATA[CustomerID with consistent formatting across all applications.]]></customDescription>

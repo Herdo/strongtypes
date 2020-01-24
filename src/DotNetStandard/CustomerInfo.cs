@@ -5,22 +5,24 @@
 
     public class CustomerInfo
     {
-        private readonly UserID _creatorID;
-        private readonly CustomerID _customerID;
-        private readonly Year _added;
-        private readonly Years _membershipDuration;
+        public UserID CreatorID { get; set; }
+        public UserID? LastEditByUserID { get; set; }
+        public CustomerID CustomerID { get; set; }
+        public Year Added { get; set; }
+        public Years MembershipDuration { get; set; }
 
         public CustomerInfo()
         {
-            _creatorID = (UserID) 189;
-            _customerID = (CustomerID) 4140;
-            _added = (Year) 2010;
-            _membershipDuration = (Years) (DateTime.Today.Year - (short) _added);
+            CreatorID = (UserID) 189;
+            LastEditByUserID = null;
+            CustomerID = (CustomerID) 4140;
+            Added = (Year) 2010;
+            MembershipDuration = (Years) (DateTime.Today.Year - (short) Added);
         }
 
         public string GetMembershipDetails()
         {
-            return $"Customer {_customerID} was added {_membershipDuration} years ago ({_added}) by user {_creatorID}.";
+            return $"Customer {CustomerID} was added {MembershipDuration} years ago ({Added}) by user {CreatorID}.";
         }
     }
 }
