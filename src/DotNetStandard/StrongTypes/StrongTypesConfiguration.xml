@@ -4,8 +4,6 @@
              xsi:schemaLocation="https://www.github.com/Herdo/strongtypes StrongTypesConfiguration.xsd">
   <strongType name="BooleanStrongType" internalType="System.Boolean"/>
   <strongType name="ByteStrongType" internalType="System.Byte"/>
-  <strongType name="DateTimeStrongType" internalType="System.DateTime"/>
-  <strongType name="DateTimeOffsetStrongType" internalType="System.DateTimeOffset"/>
   <strongType name="DecimalStrongType" internalType="System.Decimal"/>
   <strongType name="DoubleStrongType" internalType="System.Double"/>
   <strongType name="GuidStrongType" internalType="System.Guid"/>

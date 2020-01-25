@@ -4,8 +4,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="System.Boolean" />
       <xs:enumeration value="System.Byte" />
-      <xs:enumeration value="System.DateTime" />
-      <xs:enumeration value="System.DateTimeOffset" />
       <xs:enumeration value="System.Decimal" />
       <xs:enumeration value="System.Double" />
       <xs:enumeration value="System.Guid" />

@@ -440,7 +440,7 @@ foreach (XElement strongType in strongTypes)
 				    return null;
 
                 var instance = default(<#= typeName #>);
-                instance.V = (<#= internalType #>) Convert.ChangeType(reader.Value, typeof(<#= internalType #>));
+                instance.V = <#= GetNewtonsoftJsonReadFunc(Type.GetType(internalType)) #>;
                 return instance;
 			}
 			
@@ -601,6 +601,20 @@ public static string GetEqualsImplementation(Type t, string left, string right)
 	}
 
 	return string.Format("{0}.V == {1}.V", left, right);
+}
+
+public static string GetNewtonsoftJsonReadFunc(Type t)
+{
+    if (t == typeof(System.UInt64))
+	{
+	    return "reader.Value == null ? default : (System.UInt64)(System.Numerics.BigInteger)reader.Value";
+	}
+	if (t == typeof(System.Guid))
+	{
+	    return "reader.Value == null ? default : Guid.Parse((string) reader.Value)";
+	}
+
+	return string.Format("({0}) Convert.ChangeType(reader.Value, typeof({0}))", t.FullName);
 }
 
 // Exceptions for HasOperator method
