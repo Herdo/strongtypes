@@ -30,8 +30,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="StrongTypes\StrongTypesConfiguration.xsd">
-      <LastGenOutput>StrongTypesConfiguration.Designer.cs</LastGenOutput>
-      <Generator>MSDataSetGenerator</Generator>
+      <Generator></Generator>
     </None>
   </ItemGroup>
 

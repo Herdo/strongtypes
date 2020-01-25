@@ -27,14 +27,21 @@ var defaultNamespace = templateProjectItem.ContainingProject.Properties.Item("De
 /***********************************/
 /*             HEADER              */
 /***********************************/
-#>// ReSharper disable PartialTypeWithSinglePart
+#>// ReSharper disable IdentifierTypo
+// ReSharper disable CommentTypo
+// ReSharper disable PartialTypeWithSinglePart
 // ReSharper disable InheritdocConsiderUsage
 // ReSharper disable RedundantNameQualifier
 // ReSharper disable HeuristicUnreachableCode
 // ReSharper disable ReferenceEqualsWithValueType
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 // ReSharper disable NonReadonlyMemberInGetHashCode
+// ReSharper disable RedundantCast
 // ReSharper disable RedundantCast.0
+// ReSharper disable SpecifyACultureInStringConversionExplicitly
+// ReSharper disable ArrangeThisQualifier
+// ReSharper disable StringCompareToIsCultureSpecific
+// ReSharper disable RedundantToStringCall
 
 using System;
 using System.CodeDom.Compiler;
@@ -157,7 +164,7 @@ foreach (XElement strongType in strongTypes)
 		{
 			if (ReferenceEquals(null, other)) return false;
 			if (ReferenceEquals(this, other)) return true;
-			return V == other.V;
+			return <#= GetEqualsImplementation(Type.GetType(internalType), "this", "other") #>;
 		}
 		
 		/// <summary>
@@ -211,7 +218,7 @@ foreach (XElement strongType in strongTypes)
 	        if (ReferenceEquals(first, second))
 	            return true;
 
-	        return first.V == second.V;
+			return <#= GetEqualsImplementation(Type.GetType(internalType), "first", "second") #>;
 	    }
 <# } #>
 <# if (HasOperator(Type.GetType(internalType), excludeOperators, Expression.NotEqual)) { #>
@@ -309,9 +316,9 @@ foreach (XElement strongType in strongTypes)
         /// <exception cref="InvalidCastException">The validation of the difference value failed.</exception>
         /// <returns>The difference value.</returns>
         [ExcludeFromCodeCoverage]
-        public static <#= typeName #> operator -(<#= typeName #> minuend, <#= typeName #> subtrahend)
+        public static <#= GetSubtractResultType(typeName, Type.GetType(internalType)) #> operator -(<#= typeName #> minuend, <#= typeName #> subtrahend)
         {
-            return (<#= typeName #>)(minuend.V - subtrahend.V);
+            return (<#= GetSubtractResultType(typeName, Type.GetType(internalType)) #>)(minuend.V - subtrahend.V);
         }
 <# } #>
 <# if (HasOperator(Type.GetType(internalType), excludeOperators, Expression.Increment)) { #>
@@ -361,10 +368,15 @@ foreach (XElement strongType in strongTypes)
 		[ExcludeFromCodeCoverage]
 		private static <#= internalType #> Validate(<#= internalType #> value)
 		{
-			if (!IsValid(value, out var validationError))
+		    var isValid = true;
+			string validationError = null;
+			ValidateInternalValue(value, ref isValid, ref validationError);
+			if (!isValid)
 				throw new InvalidCastException("Invalid cast into the strong type. The validation failed. Error: " + validationError);
 			return value;
 		}
+
+		static partial void ValidateInternalValue(<#= internalType #> value, ref bool isValid, ref string validationError);
 		<# } if (Type.GetType(internalType) == typeof(System.DateTime)) { #>
 		
 		[ExcludeFromCodeCoverage]
@@ -415,47 +427,38 @@ foreach (XElement strongType in strongTypes)
 		<# if (provideNewtonsoftJsonConverter) { #>public sealed class NewtonsoftJsonConverter : Newtonsoft.Json.JsonConverter
         {
 		    [ExcludeFromCodeCoverage]
-            public override void WriteJson(Newtonsoft.Json.JsonWriter writer,
-                                           object value,
-                                           Newtonsoft.Json.JsonSerializer serializer)
+            public override void WriteJson(Newtonsoft.Json.JsonWriter writer, object value, Newtonsoft.Json.JsonSerializer serializer)
 			{
 				var instance = (<#= typeName #>)value;
 				writer.WriteValue(instance.V);
 			}
 			
 		    [ExcludeFromCodeCoverage]
-            public override object ReadJson(Newtonsoft.Json.JsonReader reader,
-                                            Type objectType,
-                                            object existingValue,
-                                            Newtonsoft.Json.JsonSerializer serializer)
+            public override object ReadJson(Newtonsoft.Json.JsonReader reader, Type objectType, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
             {
 			    if (reader.Value == null && Nullable.GetUnderlyingType(objectType) != null)
 				    return null;
 
                 var instance = default(<#= typeName #>);
-                instance.V = (<#= internalType #>) Convert.ChangeType(reader.Value, TypeCode.<#= internalType.Replace("System.", "") #>);
+                instance.V = (<#= internalType #>) Convert.ChangeType(reader.Value, typeof(<#= internalType #>));
                 return instance;
 			}
 			
 		    [ExcludeFromCodeCoverage]
-            public override bool CanConvert(Type objectType) => objectType == typeof(CustomerID);
+            public override bool CanConvert(Type objectType) => objectType == typeof(<#= typeName #>);
         }
 <# } #>
         
         <# if (provideSystemTextJsonConverter) { #>public sealed class SystemTextJsonConverter : System.Text.Json.Serialization.JsonConverter<<#= typeName #>>
         {
 		    [ExcludeFromCodeCoverage]
-            public override <#= typeName #> Read(ref System.Text.Json.Utf8JsonReader reader,
-                                       Type typeToConvert,
-                                       System.Text.Json.JsonSerializerOptions options)
+            public override <#= typeName #> Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
             {
                 return (<#= typeName #>)reader.Get<#= internalType.Replace("System.", "") #>();
             }
 
 			[ExcludeFromCodeCoverage]
-            public override void Write(System.Text.Json.Utf8JsonWriter writer,
-                                       <#= typeName #> value,
-                                       System.Text.Json.JsonSerializerOptions options)
+            public override void Write(System.Text.Json.Utf8JsonWriter writer, <#= typeName #> value, System.Text.Json.JsonSerializerOptions options)
             {
 				writer.Write<#= GetSystemTextJsonWriteMethodType(internalType) #>Value(value.V);
             }
@@ -577,6 +580,27 @@ public static string GetSystemTextJsonWriteMethodType(string internalType)
 	 || t == typeof(System.Single))
 	    return "Number";
 	return "String";
+}
+
+public static string GetSubtractResultType(string typeName, Type t)
+{
+    if (t == typeof(System.DateTime) || t == typeof(System.DateTimeOffset))
+	    return "System.TimeSpan";
+	return typeName;
+}
+
+public static string GetEqualsImplementation(Type t, string left, string right)
+{
+	if (t == typeof(System.Single))
+	{
+	    return string.Format("Math.Abs({0}.V - {0}.V) < System.Single.Epsilon", left, right);
+	}
+	if (t == typeof(System.Double))
+	{
+	    return string.Format("Math.Abs({0}.V - {0}.V) < System.Double.Epsilon", left, right);
+	}
+
+	return string.Format("{0}.V == {1}.V", left, right);
 }
 
 // Exceptions for HasOperator method

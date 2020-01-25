@@ -2,24 +2,20 @@
 <strongTypes xmlns="https://www.github.com/Herdo/strongtypes"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://www.github.com/Herdo/strongtypes StrongTypesConfiguration.xsd">
-  <strongType name="UserID" internalType="System.Int32"/>
-  <strongType name="CustomerID" internalType="System.Int32">
-    <formatString>D5</formatString>
-    <customDescription><![CDATA[CustomerID with consistent formatting across all applications.]]></customDescription>
-    <excludeOperator>Add</excludeOperator>
-    <excludeOperator>Subtract</excludeOperator>
-    <!-- We don't re-use customer IDs, so there's no need to decrement -->
-    <excludeOperator>Decrement</excludeOperator>
-    <!-- None of our customer IDs is "more" or "less" than the other - we don't need to compare them this way -->
-    <excludeOperator>LessThan</excludeOperator>
-    <excludeOperator>GreaterThan</excludeOperator>
-    <excludeOperator>LessThanOrEqual</excludeOperator>
-    <excludeOperator>GreaterThanOrEqual</excludeOperator>
-  </strongType>
-  <strongType name="Year" internalType="System.Int16">
-    <validate>true</validate>
-    <excludeOperator>Add</excludeOperator>
-    <excludeOperator>Substract</excludeOperator>
-  </strongType>
-  <strongType name="Years" internalType="System.Int16"/>
+  <strongType name="BooleanStrongType" internalType="System.Boolean"/>
+  <strongType name="ByteStrongType" internalType="System.Byte"/>
+  <strongType name="DateTimeStrongType" internalType="System.DateTime"/>
+  <strongType name="DateTimeOffsetStrongType" internalType="System.DateTimeOffset"/>
+  <strongType name="DecimalStrongType" internalType="System.Decimal"/>
+  <strongType name="DoubleStrongType" internalType="System.Double"/>
+  <strongType name="GuidStrongType" internalType="System.Guid"/>
+  <strongType name="Int16StrongType" internalType="System.Int16"/>
+  <strongType name="Int32StrongType" internalType="System.Int32"/>
+  <strongType name="Int64StrongType" internalType="System.Int64"/>
+  <strongType name="SByteStrongType" internalType="System.SByte"/>
+  <strongType name="SingleStrongType" internalType="System.Single"/>
+  <strongType name="StringStrongType" internalType="System.String"/>
+  <strongType name="UInt16StrongType" internalType="System.UInt16"/>
+  <strongType name="UInt32StrongType" internalType="System.UInt32"/>
+  <strongType name="UInt64StrongType" internalType="System.UInt64"/>
 </strongTypes>

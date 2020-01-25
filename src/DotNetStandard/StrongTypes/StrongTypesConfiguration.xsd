@@ -33,8 +33,8 @@
             </xs:sequence>
             <xs:attribute name="name" use="required" form="unqualified" type="xs:string" />
             <xs:attribute name="internalType" use="required" form="unqualified" type="allowedBaseType" />
-            <xs:attribute name="provideNewtonsoftJsonConverter" form="unqualified" type="xs:boolean" />
-            <xs:attribute name="provideSystemTextJsonConverter" form="unqualified" type="xs:boolean" />
+            <xs:attribute name="provideNewtonsoftJsonConverter" form="unqualified" type="xs:boolean" fixed="false" />
+            <xs:attribute name="provideSystemTextJsonConverter" form="unqualified" type="xs:boolean" fixed="false" />
           </xs:complexType>
         </xs:element>
       </xs:choice>
