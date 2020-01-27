@@ -102,7 +102,7 @@ foreach (XElement strongType in strongTypes)
 	/// <summary>
 	/// <#= CustomDescriptionText(typeName, customDescription) #>
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	<# if (provideNewtonsoftJsonConverter) { #>[Newtonsoft.Json.JsonConverter(typeof(<#= typeName #>.NewtonsoftJsonConverter))]
 <# } #>
@@ -607,7 +607,7 @@ public static string GetNewtonsoftJsonReadFunc(Type t)
 {
     if (t == typeof(System.UInt64))
 	{
-	    return "reader.Value == null ? default : (System.UInt64)(System.Numerics.BigInteger)reader.Value";
+	    return "reader.Value == null ? default : reader.Value is System.Numerics.BigInteger bi ? (System.UInt64)bi : reader.Value is System.Int64 @long ? (System.UInt64)@long : System.UInt64.TryParse(reader.Value.ToString(), out var parsedUInt64) ? parsedUInt64 : default";
 	}
 	if (t == typeof(System.Guid))
 	{

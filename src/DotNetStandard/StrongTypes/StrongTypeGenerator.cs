@@ -29,7 +29,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="BooleanStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(BooleanStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(BooleanStrongType.SystemTextJsonConverter))]
@@ -238,7 +238,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="ByteStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(ByteStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(ByteStrongType.SystemTextJsonConverter))]
@@ -545,7 +545,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="DecimalStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(DecimalStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(DecimalStrongType.SystemTextJsonConverter))]
@@ -852,7 +852,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="DoubleStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(DoubleStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(DoubleStrongType.SystemTextJsonConverter))]
@@ -1159,7 +1159,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="GuidStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(GuidStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(GuidStrongType.SystemTextJsonConverter))]
@@ -1368,7 +1368,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="Int16StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(Int16StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(Int16StrongType.SystemTextJsonConverter))]
@@ -1675,7 +1675,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="Int32StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(Int32StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(Int32StrongType.SystemTextJsonConverter))]
@@ -1982,7 +1982,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="Int64StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(Int64StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(Int64StrongType.SystemTextJsonConverter))]
@@ -2289,7 +2289,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="SByteStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(SByteStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(SByteStrongType.SystemTextJsonConverter))]
@@ -2596,7 +2596,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="SingleStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(SingleStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(SingleStrongType.SystemTextJsonConverter))]
@@ -2903,7 +2903,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="StringStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(StringStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(StringStrongType.SystemTextJsonConverter))]
@@ -3112,7 +3112,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="UInt16StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(UInt16StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(UInt16StrongType.SystemTextJsonConverter))]
@@ -3419,7 +3419,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="UInt32StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(UInt32StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(UInt32StrongType.SystemTextJsonConverter))]
@@ -3726,7 +3726,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="UInt64StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.0")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(UInt64StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(UInt64StrongType.SystemTextJsonConverter))]
@@ -4006,7 +4006,7 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				    return null;
 
                 var instance = default(UInt64StrongType);
-                instance.V = reader.Value == null ? default : (System.UInt64)(System.Numerics.BigInteger)reader.Value;
+                instance.V = reader.Value == null ? default : reader.Value is System.Numerics.BigInteger bi ? (System.UInt64)bi : reader.Value is System.Int64 @long ? (System.UInt64)@long : System.UInt64.TryParse(reader.Value.ToString(), out var parsedUInt64) ? parsedUInt64 : default;
                 return instance;
 			}
 			
