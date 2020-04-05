@@ -29,11 +29,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="BooleanStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(BooleanStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(BooleanStrongType.SystemTextJsonConverter))]
-	public partial struct BooleanStrongType : IEquatable<BooleanStrongType>, IComparable<BooleanStrongType>, ISerializable, IXmlSerializable
+	public partial struct BooleanStrongType : IEquatable<BooleanStrongType>, IComparable<BooleanStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -113,6 +113,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is BooleanStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="BooleanStrongType"/> and returns an indication of their relative values.
@@ -238,11 +259,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="ByteStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(ByteStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(ByteStrongType.SystemTextJsonConverter))]
-	public partial struct ByteStrongType : IEquatable<ByteStrongType>, IComparable<ByteStrongType>, ISerializable, IXmlSerializable
+	public partial struct ByteStrongType : IEquatable<ByteStrongType>, IComparable<ByteStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -322,6 +343,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is ByteStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="ByteStrongType"/> and returns an indication of their relative values.
@@ -545,11 +587,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="DecimalStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(DecimalStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(DecimalStrongType.SystemTextJsonConverter))]
-	public partial struct DecimalStrongType : IEquatable<DecimalStrongType>, IComparable<DecimalStrongType>, ISerializable, IXmlSerializable
+	public partial struct DecimalStrongType : IEquatable<DecimalStrongType>, IComparable<DecimalStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -629,6 +671,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is DecimalStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="DecimalStrongType"/> and returns an indication of their relative values.
@@ -852,11 +915,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="DoubleStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(DoubleStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(DoubleStrongType.SystemTextJsonConverter))]
-	public partial struct DoubleStrongType : IEquatable<DoubleStrongType>, IComparable<DoubleStrongType>, ISerializable, IXmlSerializable
+	public partial struct DoubleStrongType : IEquatable<DoubleStrongType>, IComparable<DoubleStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -936,6 +999,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is DoubleStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="DoubleStrongType"/> and returns an indication of their relative values.
@@ -1159,11 +1243,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="GuidStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(GuidStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(GuidStrongType.SystemTextJsonConverter))]
-	public partial struct GuidStrongType : IEquatable<GuidStrongType>, IComparable<GuidStrongType>, ISerializable, IXmlSerializable
+	public partial struct GuidStrongType : IEquatable<GuidStrongType>, IComparable<GuidStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -1243,6 +1327,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is GuidStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="GuidStrongType"/> and returns an indication of their relative values.
@@ -1368,11 +1473,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="Int16StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(Int16StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(Int16StrongType.SystemTextJsonConverter))]
-	public partial struct Int16StrongType : IEquatable<Int16StrongType>, IComparable<Int16StrongType>, ISerializable, IXmlSerializable
+	public partial struct Int16StrongType : IEquatable<Int16StrongType>, IComparable<Int16StrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -1452,6 +1557,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is Int16StrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="Int16StrongType"/> and returns an indication of their relative values.
@@ -1675,11 +1801,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="Int32StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(Int32StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(Int32StrongType.SystemTextJsonConverter))]
-	public partial struct Int32StrongType : IEquatable<Int32StrongType>, IComparable<Int32StrongType>, ISerializable, IXmlSerializable
+	public partial struct Int32StrongType : IEquatable<Int32StrongType>, IComparable<Int32StrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -1759,6 +1885,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is Int32StrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="Int32StrongType"/> and returns an indication of their relative values.
@@ -1982,11 +2129,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="Int64StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(Int64StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(Int64StrongType.SystemTextJsonConverter))]
-	public partial struct Int64StrongType : IEquatable<Int64StrongType>, IComparable<Int64StrongType>, ISerializable, IXmlSerializable
+	public partial struct Int64StrongType : IEquatable<Int64StrongType>, IComparable<Int64StrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -2066,6 +2213,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is Int64StrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="Int64StrongType"/> and returns an indication of their relative values.
@@ -2289,11 +2457,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="SByteStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(SByteStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(SByteStrongType.SystemTextJsonConverter))]
-	public partial struct SByteStrongType : IEquatable<SByteStrongType>, IComparable<SByteStrongType>, ISerializable, IXmlSerializable
+	public partial struct SByteStrongType : IEquatable<SByteStrongType>, IComparable<SByteStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -2373,6 +2541,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is SByteStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="SByteStrongType"/> and returns an indication of their relative values.
@@ -2596,11 +2785,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="SingleStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(SingleStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(SingleStrongType.SystemTextJsonConverter))]
-	public partial struct SingleStrongType : IEquatable<SingleStrongType>, IComparable<SingleStrongType>, ISerializable, IXmlSerializable
+	public partial struct SingleStrongType : IEquatable<SingleStrongType>, IComparable<SingleStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -2680,6 +2869,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is SingleStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="SingleStrongType"/> and returns an indication of their relative values.
@@ -2903,11 +3113,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="StringStrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(StringStrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(StringStrongType.SystemTextJsonConverter))]
-	public partial struct StringStrongType : IEquatable<StringStrongType>, IComparable<StringStrongType>, ISerializable, IXmlSerializable
+	public partial struct StringStrongType : IEquatable<StringStrongType>, IComparable<StringStrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -2987,6 +3197,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is StringStrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="StringStrongType"/> and returns an indication of their relative values.
@@ -3112,11 +3343,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="UInt16StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(UInt16StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(UInt16StrongType.SystemTextJsonConverter))]
-	public partial struct UInt16StrongType : IEquatable<UInt16StrongType>, IComparable<UInt16StrongType>, ISerializable, IXmlSerializable
+	public partial struct UInt16StrongType : IEquatable<UInt16StrongType>, IComparable<UInt16StrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -3196,6 +3427,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is UInt16StrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="UInt16StrongType"/> and returns an indication of their relative values.
@@ -3419,11 +3671,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="UInt32StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(UInt32StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(UInt32StrongType.SystemTextJsonConverter))]
-	public partial struct UInt32StrongType : IEquatable<UInt32StrongType>, IComparable<UInt32StrongType>, ISerializable, IXmlSerializable
+	public partial struct UInt32StrongType : IEquatable<UInt32StrongType>, IComparable<UInt32StrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -3503,6 +3755,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is UInt32StrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="UInt32StrongType"/> and returns an indication of their relative values.
@@ -3726,11 +3999,11 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 	/// <summary>
 	/// Implements the strong type <see cref="UInt64StrongType" />.
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	[Newtonsoft.Json.JsonConverter(typeof(UInt64StrongType.NewtonsoftJsonConverter))]
 	[System.Text.Json.Serialization.JsonConverter(typeof(UInt64StrongType.SystemTextJsonConverter))]
-	public partial struct UInt64StrongType : IEquatable<UInt64StrongType>, IComparable<UInt64StrongType>, ISerializable, IXmlSerializable
+	public partial struct UInt64StrongType : IEquatable<UInt64StrongType>, IComparable<UInt64StrongType>, IComparable, ISerializable, IXmlSerializable
 	{
         /// <summary>
         /// Actual backing property which holds the value.
@@ -3810,6 +4083,27 @@ namespace Herdo.StrongTypes.DotNetStandard.StrongTypes
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is UInt64StrongType other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="UInt64StrongType"/> and returns an indication of their relative values.

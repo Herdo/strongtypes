@@ -102,7 +102,7 @@ foreach (XElement strongType in strongTypes)
 	/// <summary>
 	/// <#= CustomDescriptionText(typeName, customDescription) #>
 	/// </summary>
-	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.0.1")]
+	[GeneratedCode("Herdo.StrongTypes.StrongTypeGenerator", "2.1.0")]
 	[Serializable]
 	<# if (provideNewtonsoftJsonConverter) { #>[Newtonsoft.Json.JsonConverter(typeof(<#= typeName #>.NewtonsoftJsonConverter))]
 <# } #>
@@ -191,6 +191,27 @@ foreach (XElement strongType in strongTypes)
 				return 0;
 			return V.GetHashCode();
 		}
+        
+        /// <summary>
+        /// Compares the current instance with another object of the same type and returns
+        /// an integer that indicates whether the current instance precedes, follows, or
+        /// occurs in the same position in the sort order as the other object.
+        /// </summary>
+        /// <param name="obj">An object to compare with this instance.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="obj"/> is not the same type as this instance.</exception>
+        /// <returns>
+        /// A value that indicates the relative order of the objects being compared. The
+        /// return value has these meanings: Value Meaning Less than zero This instance precedes
+        /// obj in the sort order. Zero This instance occurs in the same position in the
+        /// sort order as obj. Greater than zero This instance follows obj in the sort order.
+        /// </returns>
+        [ExcludeFromCodeCoverage]
+        int IComparable.CompareTo(object obj)
+        {
+            if (obj is <#= typeName #> other)
+                return CompareTo(other);
+            throw new ArgumentException($"{nameof(obj)} is not of the same type as this instance.", nameof(obj));
+        }
 
 		/// <summary>
         /// Compares this instance to a specified <see cref="<#= typeName #>"/> and returns an indication of their relative values.
@@ -514,7 +535,7 @@ private static string CustomDescriptionText(string typeName, string customDescri
 private static string BuildDerivation(string typeName)
 {
 	var sb = new StringBuilder(" : ");
-	sb.Append(string.Format("IEquatable<{0}>, IComparable<{0}>, ISerializable, IXmlSerializable", typeName));
+	sb.Append(string.Format("IEquatable<{0}>, IComparable<{0}>, IComparable, ISerializable, IXmlSerializable", typeName));
 	return sb.ToString();
 }
 
